@@ -440,12 +440,12 @@ body {
     inset -5px -5px 10px var(--light-shadow);
     color: var(--main-green);
 
-    animation: backInDown; /* referring directly to the animation's @keyframe declaration */
-    animation-duration: 0.6s; /* don't forget to set a duration! */
+    animation: fadeInDown; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 0.7s; /* don't forget to set a duration! */
 }
 
 .remove-anim {
-    animation: backOutUp 0.6s;
+    animation: fadeOutUp 0.7s;
 }
 
 .taskbar-item:hover {
