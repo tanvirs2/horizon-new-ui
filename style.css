@@ -417,8 +417,10 @@ body {
     background: linear-gradient(#ffffff, #1B1B1BCC);
     border-radius: 5px;
     border: 1px solid #bfbfbf;
-    transition: .3s;
+    /*transition: .3s;*/
     box-shadow: 0 15px 20px #5a5a5a, 0 -5px 10px #cecece, 0 -1px #0d0d0d;
+
+
 }
 
 #taskbar:hover {
@@ -427,15 +429,23 @@ body {
 
 .taskbar-item {
     opacity: 1;
-    margin: 3px;
+    margin: 6px 4px;
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
+
 
     background-color: var(--base-color);
     box-shadow: inset 5px 5px 10px var(--dark-shadow),
     inset -5px -5px 10px var(--light-shadow);
     color: var(--main-green);
+
+    animation: backInDown; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 0.7s; /* don't forget to set a duration! */
+}
+
+.remove-anim {
+    animation: backOutUp 0.7s;
 }
 
 .taskbar-item:hover {

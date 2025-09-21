@@ -48,7 +48,7 @@ document.querySelectorAll('.info-box-icons .fa-square').forEach(item=>{
 
         e.target.closest('.info-box').classList.toggle('grid-item--large');
 
-        console.log(e.target.closest('.info-box').classList.contains('grid-item--large'))
+        //console.log(e.target.closest('.info-box').classList.contains('grid-item--large'))
 
 
         if (!e.target.closest('.info-box').classList.contains('grid-item--large')) {
@@ -89,7 +89,7 @@ interact('.grid-item--large').resizable({
 
 // Restore function
 function restoreBox(box) {
-    console.log(box.dataset)
+    //console.log(box.dataset)
     if (box.dataset.origWidth && box.dataset.origHeight) {
         box.style.width = box.dataset.origWidth + 'px';
         box.style.height = box.dataset.origHeight + 'px';
@@ -126,17 +126,23 @@ document.querySelectorAll(".fa-minus").forEach(btn => {
         // Restore when clicked
         taskBtn.addEventListener("click", function () {
             this._boxRef.style.display = "block";
-            this.remove();
-            pckry.layout();
-            console.log(taskbar.innerHTML)
-            if (!taskbar.innerHTML) {
-                taskbar.style.opacity = 0;
-            }
+
+            this.classList.add("remove-anim");
+
+            this.addEventListener("animationend", () => {
+                this.remove();
+                if (!taskbar.innerHTML) {
+                    taskbar.style.opacity = 0;
+                }
+                pckry.layout();
+
+            }, { once: true });
+
         });
 
         taskbar.appendChild(taskBtn);
 
-        console.log(taskbar.innerHTML)
+        //console.log(taskbar.innerHTML)
         if (taskbar.innerHTML) {
             taskbar.style.opacity = 1;
         }
