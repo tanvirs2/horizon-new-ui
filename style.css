@@ -1,0 +1,446 @@
+/* Neumorphism Base Colors */
+:root {
+    --base-color: #e0e0e0;
+    --light-shadow: #ffffff;
+    --dark-shadow: #b8b8b8;
+    --border-dark-shadow: #f0f0f0;
+    --main-green: #4CAF50;
+}
+
+/* General Body and Layout */
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--base-color);
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.app-container {
+    background-color: var(--base-color);
+    width: 95%;
+    height: 95%;
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px var(--dark-shadow),
+    -10px -10px 20px var(--light-shadow);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.app-header {
+    background-color: var(--base-color);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-dark-shadow);
+}
+
+.app-header h1 {
+    font-size: 1.5em;
+    color: var(--main-green);
+    margin: 0;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.user-name {
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Main Wrapper & Panels */
+.main-content-wrapper {
+    display: flex;
+    flex-grow: 1;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background-color: var(--base-color);
+    padding: 20px;
+    border-right: 1px solid var(--border-dark-shadow);
+    overflow-y: auto;
+    flex-shrink: 0;
+}
+
+.sidebar-section {
+    margin-bottom: 25px;
+}
+
+.sidebar h3 {
+    margin-top: 0;
+    font-size: 1em;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-align: left;
+    box-shadow: 5px 5px 10px var(--dark-shadow),
+    -5px -5px 10px var(--light-shadow);
+    transition: all 0.2s ease;
+}
+
+.btn:active {
+    box-shadow: inset 5px 5px 10px var(--dark-shadow),
+    inset -5px -5px 10px var(--light-shadow);
+}
+
+.btn i {
+    margin-right: 8px;
+}
+
+.primary-btn {
+    background-color: var(--main-green);
+    color: white;
+    box-shadow: 5px 5px 10px var(--dark-shadow),
+    -5px -5px 10px var(--light-shadow);
+}
+
+.secondary-btn {
+    background-color: var(--base-color);
+    color: #333;
+}
+
+.project-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.project-list li {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+}
+
+.project-list li.active {
+    background-color: var(--base-color);
+    box-shadow: inset 5px 5px 10px var(--dark-shadow),
+    inset -5px -5px 10px var(--light-shadow);
+}
+
+.project-list li:hover:not(.active) {
+    box-shadow: 3px 3px 6px var(--dark-shadow),
+    -3px -3px 6px var(--light-shadow);
+}
+
+/* Main Panel */
+.main-panel {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Top Navigation */
+.top-nav {
+    background-color: var(--base-color);
+    border-bottom: 1px solid var(--border-dark-shadow);
+    padding: 0 20px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.nav-tabs {
+    display: flex;
+}
+
+.tab-item {
+    padding: 12px 15px;
+    text-decoration: none;
+    color: #666;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.tab-item.active {
+    background-color: var(--base-color);
+    box-shadow: inset 5px 5px 10px var(--dark-shadow),
+    inset -5px -5px 10px var(--light-shadow);
+    color: var(--main-green);
+}
+
+.tab-item:hover {
+    box-shadow: 3px 3px 6px var(--dark-shadow),
+    -3px -3px 6px var(--light-shadow);
+    color: var(--main-green);
+}
+
+/* Analytics Content */
+.analytics-content {
+    padding: 25px;
+    overflow-y: auto;
+}
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.content-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+
+.info-box {
+    background-color: var(--base-color);
+    padding: 20px;
+    border-radius: 12px;
+    transition: box-shadow 0.3s ease-in-out;
+    border: 1px solid var(--border-dark-shadow);
+    width: 220px;
+    font-size: .8rem;
+
+    /*margin-bottom: 10px;*/
+
+
+    /* Scrollbar Customization */
+    scrollbar-width: thin; /* Firefox */
+    scrollbar-color: #888 #f1f1f1; /* Firefox */
+}
+
+.info-box:hover {
+    box-shadow: 8px 8px 16px var(--dark-shadow),
+    -8px -8px 16px var(--light-shadow);
+    border: 1px solid #ffffff00;
+}
+
+.info-box-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.info-box-header:hover {
+    background: radial-gradient(transparent, #efefef, transparent);
+    cursor: move;
+}
+
+.info-box-icons {
+    display: flex;
+    gap: 8px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.info-box:hover .info-box-icons {
+    opacity: 1;
+}
+
+.info-icon {
+    display: grid !important;
+    font-size: 0.8em;
+    color: #666;
+    cursor: pointer;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--base-color);
+    box-shadow: 2px 2px 5px var(--dark-shadow),
+    -2px -2px 5px var(--light-shadow);
+    transition: all 0.2s ease;
+    width: 20px;
+    height: 20px;
+    place-items: center;
+}
+
+.info-icon:hover {
+    color: var(--main-green);
+    box-shadow: inset 2px 2px 5px var(--dark-shadow),
+    inset -2px -2px 5px var(--light-shadow);
+}
+
+.info-icon.fa-times:hover {
+    color: #e74c3c;
+}
+
+.box-title {
+    margin-top: 0;
+    font-size: 1.1em;
+    color: var(--main-green);
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.info-box p {
+    font-size: 0.9em;
+    margin: 5px 0;
+}
+
+.info-box strong {
+    color: #333;
+}
+
+.patho-likely {
+    color: #e67e22; /* Orange color */
+    font-weight: 600;
+}
+
+
+
+/*************/
+
+
+/* analytics-content-কে একটি নির্দিষ্ট উচ্চতা দিন যাতে এটি স্ক্রল করতে পারে */
+.analytics-content {
+    overflow-y: auto; /* এটি উল্লম্ব স্ক্রলিং সক্ষম করবে */
+    padding: 25px;
+    height: 78vh;
+}
+
+/* info-section-grid-এর জন্য কাস্টম স্ক্রলবার */
+.info-section-grid {
+
+    min-height: 78vh;
+
+}
+
+/* Scrollbar Customization */
+
+/* ডিফল্ট স্ক্রলবার */
+.analytics-content::-webkit-scrollbar {
+    width: 1px;
+}
+
+/* স্ক্রলবারের ট্র্যাক বা ব্যাকগ্রাউন্ড */
+.analytics-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* স্ক্রলবারের গ্রিপ বা থাম্ব */
+.analytics-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 5px;
+}
+
+/* যখন কন্টেইনারে হোভার করা হবে, তখন স্ক্রলবারের প্রস্থ স্বাভাবিক হবে */
+.analytics-content:hover::-webkit-scrollbar {
+    width: 8px; /* আইফোনের মতো প্রস্থ */
+}
+
+/* হোভার করার পর থাম্বের রঙ পরিবর্তন */
+.analytics-content:hover::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+
+
+/* WebKit-based browsers (Chrome, Safari, etc.) scrollbar styles */
+.info-box::-webkit-scrollbar {
+    width: 1px;
+}
+
+.info-box:hover::-webkit-scrollbar {
+    width: 8px;
+}
+
+.info-box::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 5px;
+}
+
+.info-box:hover::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+
+.grid-item--large {
+    overflow: auto;
+    width: 756px;
+    height: 16vw;
+    max-height: 45vw;
+    background: #e6e6e6;
+    border: 4px solid #8e8e8e;
+    box-shadow: 30px 30px 60px #aeaeae;
+    white-space: nowrap;
+    font-size: 1.1rem;
+    transition: border 0.3s ease-in-out,
+    box-shadow 0.3s ease-in-out,
+    background 0.3s ease-in-out;
+}
+
+.grid-item--large:hover {
+    background: #e4e4e4;
+    border: 4px solid #c8c8c8;
+    box-shadow: 30px 30px 60px #cdcdcd, -30px -30px 60px #efefef;
+}
+
+.grid-item--large .fa-square {
+    background: linear-gradient(to bottom, #29ca00, #388E3C);
+    box-shadow: 2px 2px 5px var(--dark-shadow),
+    -2px -2px 5px var(--light-shadow);
+}
+
+.taskbar-area {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    gap: 5px;
+}
+
+
+#taskbar {
+    opacity: 0;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    min-height: 40px;
+    flex-wrap: wrap;
+    background: linear-gradient(#F5F5F5ee, #bfbfbfdd);
+    border-radius: 10px;
+    border: 1px solid #bfbfbf;
+    transition: .3s;
+}
+
+#taskbar:hover {
+    opacity: 1;
+}
+
+.taskbar-item {
+    margin: 3px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+
+    background-color: var(--base-color);
+    box-shadow: inset 5px 5px 10px var(--dark-shadow),
+    inset -5px -5px 10px var(--light-shadow);
+    color: var(--main-green);
+}
+
+.taskbar-item:hover {
+    box-shadow: 3px 3px 6px var(--dark-shadow),
+    -3px -3px 6px var(--light-shadow);
+    color: var(--main-green);
+}
+
+
+
+
