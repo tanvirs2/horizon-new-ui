@@ -117,7 +117,7 @@ document.querySelectorAll(".fa-minus").forEach(btn => {
 
         // Add to taskbar
         let taskBtn = document.createElement("div");
-        taskBtn.className = "taskbar-item";
+        taskBtn.className = "taskbar-item ca__fx-zoomInTop";
         taskBtn.innerText = box.querySelector(".box-title").innerText.trim();
 
         // Save direct reference
@@ -127,15 +127,14 @@ document.querySelectorAll(".fa-minus").forEach(btn => {
         taskBtn.addEventListener("click", function () {
             this._boxRef.style.display = "block";
 
-            this.classList.add("remove-anim");
+            this.classList.add("ca__fx-zoomOutTop");
 
             this.addEventListener("animationend", () => {
                 this.remove();
+                pckry.layout();
                 if (!taskbar.innerHTML) {
                     taskbar.style.opacity = 0;
                 }
-                pckry.layout();
-
             }, { once: true });
 
         });

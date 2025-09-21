@@ -434,19 +434,17 @@ body {
     border-radius: 4px;
     cursor: pointer;
 
+    text-shadow: 2px 2px 4px white, -2px -2px 4px white ;
 
     background-color: var(--base-color);
     box-shadow: inset 5px 5px 10px var(--dark-shadow),
     inset -5px -5px 10px var(--light-shadow);
     color: var(--main-green);
 
-    animation: fadeInDown; /* referring directly to the animation's @keyframe declaration */
-    animation-duration: 0.7s; /* don't forget to set a duration! */
+    animation-duration: 0.5s; /* don't forget to set a duration! */
 }
 
-.remove-anim {
-    animation: fadeOutUp 0.7s;
-}
+
 
 .taskbar-item:hover {
     box-shadow: 3px 3px 6px var(--dark-shadow),
