@@ -128,7 +128,7 @@ document.querySelectorAll(".fa-minus").forEach(btn => {
             this._boxRef.style.display = "block";
 
             this.classList.add("ca__fx-zoomOutTop");
-
+            pckry.layout();
             this.addEventListener("animationend", () => {
                 this.remove();
                 pckry.layout();
