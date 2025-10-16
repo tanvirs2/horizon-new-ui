@@ -5,6 +5,12 @@
     --dark-shadow: #b8b8b8;
     --border-dark-shadow: #f0f0f0;
     --main-green: #4CAF50;
+
+    --theme-green: #4CAF50;
+    --text-dark: #333;
+    --bg-light: #e4e6ed;
+    --shadow-light: rgba(255, 255, 255, 0.8);
+    --shadow-dark: rgba(0, 0, 0, 0.15);
 }
 
 /* General Body and Layout */
@@ -452,6 +458,234 @@ body {
     color: var(--main-green);
 }
 
+
+/**************************/
+/* =========================
+   TABLE CONTAINER
+   ========================= */
+
+.circle-container {
+    zoom: 60%;
+    overflow: hidden;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    width: 50%;
+}
+.table-container {
+    zoom: 60%;
+    background: var(--bg-light);
+    border-radius: 14px;
+    box-shadow: 6px 6px 12px var(--shadow-dark),
+    -6px -6px 12px var(--shadow-light);
+    overflow: hidden;
+    padding: 1rem;
+    margin: 1.5rem 0;
+    width: 50%;
+    margin-top: .9rem;
+}
+
+/* =========================
+   TABLE STYLE
+   ========================= */
+#var-tbl-area table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    color: var(--text-dark);
+    background: var(--bg-light);
+}
+
+/* =========================
+   HEADER
+   ========================= */
+#var-tbl-area thead {
+    background: #ff4b4b;
+    color: white;
+}
+
+#var-tbl-area thead th {
+    text-align: left;
+    padding: 10px 14px;
+    font-weight: 600;
+    font-size: 15px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.15);
+    letter-spacing: 0.4px;
+}
+
+/* =========================
+   BODY
+   ========================= */
+#var-tbl-area tbody tr {
+    transition: all 0.8s ease-in-out;
+    box-shadow: inset 0 0 0 transparent;
+}
+
+#var-tbl-area tbody tr:nth-child(even) {
+    background: #f8f9fb;
+}
+
+#var-tbl-area tbody td {
+    padding: 10px 14px;
+    border-bottom: 1px solid #e0e3e7;
+}
+
+/* Hover effect (neumorphic press) */
+#var-tbl-area tbody tr:hover {
+    background: var(--bg-light);
+    box-shadow: inset 3px 3px 6px var(--shadow-dark),
+    inset -3px -3px 6px var(--shadow-light);
+    transform: translateY(-1px);
+    zoom: 130%;
+    border-radius: 8px;
+}
+
+/* =========================
+   SCROLL WRAPPER (optional)
+   ========================= */
+.table-scroll {
+    max-height: 102vh;
+    overflow-y: auto;
+    border-radius: 14px;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+@media (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody tr {
+        margin-bottom: 12px;
+        border-radius: 10px;
+        box-shadow: 4px 4px 10px var(--shadow-dark),
+        -4px -4px 10px var(--shadow-light);
+    }
+
+    tbody td {
+        padding: 10px;
+        text-align: right;
+        position: relative;
+    }
+
+    tbody td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 12px;
+        top: 10px;
+        color: #555;
+        font-weight: 600;
+        text-transform: capitalize;
+    }
+}
+
+/*==================================*/
+
+
+
+.circle {
+    box-shadow: 6px 6px 12px var(--shadow-dark),
+    -6px -6px 12px var(--shadow-light);
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+}
+
+.circle {
+    box-shadow: 6px 6px 12px var(--shadow-dark),
+    -6px -6px 12px var(--shadow-light);
+    position: relative;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+}
+
+.label {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 50%;
+    background: #FF6565;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    transform: translate(-50%, -50%);
+}
+
+
+/*================*/
+
+.info-section-grid table {
+    zoom: 70%;
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    background: #cfcfcf;
+    transition: .5s;
+
+}
+
+.info-section-grid thead {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.info-section-grid th, .info-section-grid td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.info-section-grid tr:hover {
+    background-color: #ededed;
+}
+
+.info-section-grid th {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/*@media screen and (max-width: 768px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr {
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        padding: 10px;
+        background-color: white;
+    }
+
+    td {
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 16px;
+        top: 12px;
+        font-weight: bold;
+        text-align: left;
+    }
+}*/
 
 
 

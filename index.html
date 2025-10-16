@@ -77,285 +77,868 @@
                     </div>
                 </div>
 
-                <div class="info-section-grid">
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">Rare Disease</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
-                            </div>
+                <div class="data-area" style="display: flex; width: 100%">
+
+                    <div id="var-tbl-area" style="width: 500px; overflow: auto; padding-right: 15px; display: flex; height: 70vh">
+
+
+                        <div class="circle-container">
+
+                            <div class="circle" id="chromosomeCircle"></div>
+
+                            <script>
+                                const circle = document.getElementById('chromosomeCircle');
+                                const radius = 150;
+                                const centerX = 175;
+                                const centerY = 175;
+
+                                for (let i = 1; i <= 22; i++) {
+                                    const angle = (i - 1) * (360 / 22) * (Math.PI / 180);
+                                    const x = centerX + radius * Math.cos(angle);
+                                    const y = centerY + radius * Math.sin(angle);
+
+                                    const label = document.createElement('div');
+                                    label.className = 'label';
+                                    label.textContent = i;
+                                    label.style.left = `${x}px`;
+                                    label.style.top = `${y}px`;
+
+                                    circle.appendChild(label);
+                                }
+                            </script>
+
                         </div>
-                        <p><strong>Pathogenicity:</strong> <span class="patho-likely">Likely Pathogenic</span></p>
-                        <p><strong>OMIM ID:</strong> 150310</p>
-                        <p><strong>Inheritance:</strong> Autosomal recessive, Autosomal dominant</p>
-                        <p><strong>Known Disease:</strong> Epidermolysis bullosa, junctional 1B, severe, Epidermolysis bullosa, junctional 1A, intermediate, Amelogenesis imperfecta, type IA</p>
+
+
+
+                        <div class="table-container">
+                            <div class="table-scroll">
+                                <table class="">
+                                    <thead>
+                                    <tr>
+                                        <th>Chr <span class="sort-icon">▼</span></th>
+                                        <th>Position <span class="sort-icon">▼</span></th>
+                                        <th>Variant <span class="sort-icon">▼</span></th>
+                                        <th>Zygosity <span class="sort-icon">▼</span></th>
+                                        <th>Variant Type <span class="sort-icon">▼</span></th>
+                                        <th>Gene <span class="sort-icon">▼</span></th>
+                                        <th>Inheritance <span class="sort-icon">▼</span></th>
+                                        <th>ClinVar <span class="sort-icon">▼</span></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>945083</td>
+                                        <td>CCC:TCC >> C</td>
+                                        <td>het</td>
+                                        <td>nonframeshift deletion</td>
+                                        <td>NOC2L</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>945573</td>
+                                        <td>G >> A</td>
+                                        <td>het</td>
+                                        <td>silent</td>
+                                        <td>NOC2L</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>1051852</td>
+                                        <td>G >> C</td>
+                                        <td>het</td>
+                                        <td>missense</td>
+                                        <td>AGRN</td>
+                                        <td>Uncertain_significance</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>1319377</td>
+                                        <td>G >> A</td>
+                                        <td>het</td>
+                                        <td>UTR</td>
+                                        <td>INTS11</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>1331496</td>
+                                        <td>C >> T</td>
+                                        <td>het</td>
+                                        <td>missense</td>
+                                        <td>TAS1R3</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>1405858</td>
+                                        <td>C >> T</td>
+                                        <td>het</td>
+                                        <td>missense</td>
+                                        <td>MRPL20</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>1459515</td>
+                                        <td>T >> C</td>
+                                        <td>LQ_hst</td>
+                                        <td>UTR</td>
+                                        <td>ATAD3B</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>2381830</td>
+                                        <td>G >> T</td>
+                                        <td>het</td>
+                                        <td>UTR</td>
+                                        <td>MORN1</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>3855050</td>
+                                        <td>C >> A</td>
+                                        <td>het</td>
+                                        <td>missense</td>
+                                        <td>WRAP73</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr><tr>
+                                        <td>chr1</td>
+                                        <td>1319377</td>
+                                        <td>G >> A</td>
+                                        <td>het</td>
+                                        <td>UTR</td>
+                                        <td>INTS11</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>1331496</td>
+                                        <td>C >> T</td>
+                                        <td>het</td>
+                                        <td>missense</td>
+                                        <td>TAS1R3</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>1405858</td>
+                                        <td>C >> T</td>
+                                        <td>het</td>
+                                        <td>missense</td>
+                                        <td>MRPL20</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>1459515</td>
+                                        <td>T >> C</td>
+                                        <td>LQ_hst</td>
+                                        <td>UTR</td>
+                                        <td>ATAD3B</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>2381830</td>
+                                        <td>G >> T</td>
+                                        <td>het</td>
+                                        <td>UTR</td>
+                                        <td>MORN1</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>3855050</td>
+                                        <td>C >> A</td>
+                                        <td>het</td>
+                                        <td>missense</td>
+                                        <td>WRAP73</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr><tr>
+                                        <td>chr1</td>
+                                        <td>1319377</td>
+                                        <td>G >> A</td>
+                                        <td>het</td>
+                                        <td>UTR</td>
+                                        <td>INTS11</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>1331496</td>
+                                        <td>C >> T</td>
+                                        <td>het</td>
+                                        <td>missense</td>
+                                        <td>TAS1R3</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>1405858</td>
+                                        <td>C >> T</td>
+                                        <td>het</td>
+                                        <td>missense</td>
+                                        <td>MRPL20</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>1459515</td>
+                                        <td>T >> C</td>
+                                        <td>LQ_hst</td>
+                                        <td>UTR</td>
+                                        <td>ATAD3B</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>2381830</td>
+                                        <td>G >> T</td>
+                                        <td>het</td>
+                                        <td>UTR</td>
+                                        <td>MORN1</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>3855050</td>
+                                        <td>C >> A</td>
+                                        <td>het</td>
+                                        <td>missense</td>
+                                        <td>WRAP73</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr><tr>
+                                        <td>chr1</td>
+                                        <td>1319377</td>
+                                        <td>G >> A</td>
+                                        <td>het</td>
+                                        <td>UTR</td>
+                                        <td>INTS11</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>1331496</td>
+                                        <td>C >> T</td>
+                                        <td>het</td>
+                                        <td>missense</td>
+                                        <td>TAS1R3</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>1405858</td>
+                                        <td>C >> T</td>
+                                        <td>het</td>
+                                        <td>missense</td>
+                                        <td>MRPL20</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>1459515</td>
+                                        <td>T >> C</td>
+                                        <td>LQ_hst</td>
+                                        <td>UTR</td>
+                                        <td>ATAD3B</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>2381830</td>
+                                        <td>G >> T</td>
+                                        <td>het</td>
+                                        <td>UTR</td>
+                                        <td>MORN1</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>3855050</td>
+                                        <td>C >> A</td>
+                                        <td>het</td>
+                                        <td>missense</td>
+                                        <td>WRAP73</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>6085238</td>
+                                        <td>A >> G</td>
+                                        <td>het</td>
+                                        <td>missense</td>
+                                        <td>KCNAB2</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>10232301</td>
+                                        <td>CAT >> C</td>
+                                        <td>LQ_hst</td>
+                                        <td>UTR</td>
+                                        <td>KIF1B</td>
+                                        <td>Benign</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>10639110</td>
+                                        <td>CTG:GTC >> C</td>
+                                        <td>het</td>
+                                        <td>nonframeshift deletion</td>
+                                        <td>CASZ1</td>
+                                        <td>Uncertain_significance</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>10658962</td>
+                                        <td>G >> A</td>
+                                        <td>het</td>
+                                        <td>silent</td>
+                                        <td>CASZ1</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    <tr>
+                                        <td>chr1</td>
+                                        <td>13698852</td>
+                                        <td>G >> A</td>
+                                        <td>het</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p style=" color: #666; margin-top: 5px; zo">Showing results 20 of 1128</p>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+
                     </div>
 
+                    <div style="flex: 1; display: block;">
+                        <div class="info-section-grid">
 
 
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">Gene Insights</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
+                            <div class="info-box">
+                                <div class="info-box-header">
+                                    <h4 class="box-title">Rare Disease</h4>
+                                    <div class="info-box-icons">
+                                        <i class="fas fa-minus info-icon"></i>
+                                        <i class="far fa-square info-icon"></i>
+                                        <i class="fas fa-times info-icon"></i>
+                                    </div>
+                                </div>
+                                <p><strong>Pathogenicity:</strong> Benign</p>
+                                <p><strong>OMIM ID:</strong> Not listed</p>
+                                <p><strong>Inheritance:</strong> Not listed</p>
+                                <p><strong>Known Disease:</strong> Not listed</p>
                             </div>
+
+                            <div class="info-box">
+                                <div class="info-box-header">
+                                    <h4 class="box-title">Rare Disease</h4>
+                                    <div class="info-box-icons">
+                                        <i class="fas fa-minus info-icon"></i>
+                                        <i class="far fa-square info-icon"></i>
+                                        <i class="fas fa-times info-icon"></i>
+                                    </div>
+                                </div>
+                                <p><strong>Pathogenicity:</strong> <span class="patho-likely">Likely Pathogenic</span></p>
+                                <p><strong>OMIM ID:</strong> 150310</p>
+                                <p><strong>Inheritance:</strong> Autosomal recessive, Autosomal dominant</p>
+                                <p><strong>Known Disease:</strong> Epidermolysis bullosa, junctional 1B, severe, Epidermolysis bullosa, junctional 1A, intermediate, Amelogenesis imperfecta, type IA</p>
+                            </div>
+
+                            <div class="info-box">
+                                <div class="info-box-header">
+                                    <h4 class="box-title">Pan Cancer</h4>
+                                    <div class="info-box-icons">
+                                        <i class="fas fa-minus info-icon"></i>
+                                        <i class="far fa-square info-icon"></i>
+                                        <i class="fas fa-times info-icon"></i>
+                                    </div>
+                                </div>
+                                <p>No specific data provided</p>
+                            </div>
+
+                            <div class="info-box">
+                                <div class="info-box-header">
+                                    <h4 class="box-title">Gene Insights</h4>
+                                    <div class="info-box-icons">
+                                        <i class="fas fa-minus info-icon"></i>
+                                        <i class="far fa-square info-icon"></i>
+                                        <i class="fas fa-times info-icon"></i>
+                                    </div>
+                                </div>
+                                <table>
+                                    <tr><th>Gene</th><td>Not listed</td></tr>
+                                    <tr><th>Condition</th><td>Not listed</td></tr>
+                                    <tr><th>ACMG Classification</th><td>Benign</td></tr>
+                                    <tr><th>ACMG Secondary Finding</th><td>Not listed</td></tr>
+                                    <tr><th>ACMG Secondary Finding ID</th><td>EST00000426406</td></tr>
+                                </table>
+                            </div>
+
+                            <div class="info-box">
+                                <div class="info-box-header">
+                                    <h4 class="box-title">ClinVar</h4>
+                                    <div class="info-box-icons">
+                                        <i class="fas fa-minus info-icon"></i>
+                                        <i class="far fa-square info-icon"></i>
+                                        <i class="fas fa-times info-icon"></i>
+                                    </div>
+                                </div>
+                                <table>
+                                    <tr><th>Variant</th><td>chr1:451414 : G &gt; A</td></tr>
+                                    <tr><th>Pathogenicity</th><td>Benign</td></tr>
+                                    <tr><th>Phenotype</th><td>N/A</td></tr>
+                                    <tr><th>Review</th><td>N/A</td></tr>
+                                </table>
+                            </div>
+
+                            <div class="info-box">
+                                <div class="info-box-header">
+                                    <h4 class="box-title">Population Frequency (PM2)</h4>
+                                    <div class="info-box-icons">
+                                        <i class="fas fa-minus info-icon"></i>
+                                        <i class="far fa-square info-icon"></i>
+                                        <i class="fas fa-times info-icon"></i>
+                                    </div>
+                                </div>
+                                <p>No specific data provided</p>
+                            </div>
+
+                            <div class="info-box">
+                                <div class="info-box-header">
+                                    <h4 class="box-title">Pharmacogenomic Insight (SeqRx)</h4>
+                                    <div class="info-box-icons">
+                                        <i class="fas fa-minus info-icon"></i>
+                                        <i class="far fa-square info-icon"></i>
+                                        <i class="fas fa-times info-icon"></i>
+                                    </div>
+                                </div>
+                                <table >
+                                    <tr><th>Gene</th><td>Not listed</td></tr>
+                                    <tr><th>Drug</th><td>Not listed</td></tr>
+                                    <tr><th>Condition</th><td>Not listed</td></tr>
+                                    <tr><th>Ref-Norm ID</th><td>Not listed</td></tr>
+                                    <tr><th>PMID</th><td>Not listed</td></tr>
+                                </table>
+                            </div>
+
+                            <div class="info-box">
+                                <div class="info-box-header">
+                                    <h4 class="box-title">Horizon Rare Database (PS4)</h4>
+                                    <div class="info-box-icons">
+                                        <i class="fas fa-minus info-icon"></i>
+                                        <i class="far fa-square info-icon"></i>
+                                        <i class="fas fa-times info-icon"></i>
+                                    </div>
+                                </div>
+                                <p>No matching records found</p>
+                            </div>
+
+                            <div class="info-box">
+                                <div class="info-box-header">
+                                    <h4 class="box-title">Horizon Cancer Database (PS4)</h4>
+                                    <div class="info-box-icons">
+                                        <i class="fas fa-minus info-icon"></i>
+                                        <i class="far fa-square info-icon"></i>
+                                        <i class="fas fa-times info-icon"></i>
+                                    </div>
+                                </div>
+                                <p>No matching records found</p>
+                            </div>
+
+                            <div class="info-box">
+                                <div class="info-box-header">
+                                    <h4 class="box-title">GWAS Variants</h4>
+                                    <div class="info-box-icons">
+                                        <i class="fas fa-minus info-icon"></i>
+                                        <i class="far fa-square info-icon"></i>
+                                        <i class="fas fa-times info-icon"></i>
+                                    </div>
+                                </div>
+                                <table >
+                                    <tr><th>Disease</th><td>Fentanyl consumption in laparoscopic-assisted colectomy (first 24 hours)</td></tr>
+                                    <tr><th>SNP</th><td>rs2076222</td></tr>
+                                    <tr><th>P-value</th><td>3E-7</td></tr>
+                                    <tr><th>OR</th><td>0.3876</td></tr>
+                                </table>
+                            </div>
+
+
+
+
+                            <div class="info-box">
+                                <div class="info-box-header">
+                                    <h4 class="box-title">Carrier Screening</h4>
+                                    <div class="info-box-icons">
+                                        <i class="fas fa-minus info-icon"></i>
+                                        <i class="far fa-square info-icon"></i>
+                                        <i class="fas fa-times info-icon"></i>
+                                    </div>
+                                </div>
+                                <p><strong>Status:</strong> Not listed</p>
+                            </div>
+
+                            <div class="info-box">
+                                <div class="info-box-header">
+                                    <h4 class="box-title">Short Tandem Repeat</h4>
+                                    <div class="info-box-icons">
+                                        <i class="fas fa-minus info-icon"></i>
+                                        <i class="far fa-square info-icon"></i>
+                                        <i class="fas fa-times info-icon"></i>
+                                    </div>
+                                </div>
+                                <p><strong>Sequence:</strong> Not listed</p>
+                            </div>
+
+
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h4 class="box-title">Rare Disease</h4>
+                                <div class="info-box-icons">
+                                    <i class="fas fa-minus info-icon"></i>
+                                    <i class="far fa-square info-icon"></i>
+                                    <i class="fas fa-times info-icon"></i>
+                                </div>
+                            </div>
+                            <p><strong>Pathogenicity:</strong> <span class="patho-likely">Likely Pathogenic</span></p>
+                            <p><strong>OMIM ID:</strong> 150310</p>
+                            <p><strong>Inheritance:</strong> Autosomal recessive, Autosomal dominant</p>
+                            <p><strong>Known Disease:</strong> Epidermolysis bullosa, junctional 1B, severe, Epidermolysis bullosa, junctional 1A, intermediate, Amelogenesis imperfecta, type IA</p>
                         </div>
-                        <p><strong>Gene PLI:</strong> 0</p>
-                        <p><strong>Gene Constraint Index:</strong> 0.00</p>
-                        <p><strong>Inheritance:</strong> AR</p>
-                        <p><strong>Carrier Phenotype:</strong> LAMB3-related conditions</p>
-                        <p><strong>ACMG Secondary Finding Phenotype:</strong></p>
-                        <p><strong>TransID:</strong> ENST00000356082.9</p>
+
+
+
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h4 class="box-title">Gene Insights</h4>
+                                <div class="info-box-icons">
+                                    <i class="fas fa-minus info-icon"></i>
+                                    <i class="far fa-square info-icon"></i>
+                                    <i class="fas fa-times info-icon"></i>
+                                </div>
+                            </div>
+                            <p><strong>Gene PLI:</strong> 0</p>
+                            <p><strong>Gene Constraint Index:</strong> 0.00</p>
+                            <p><strong>Inheritance:</strong> AR</p>
+                            <p><strong>Carrier Phenotype:</strong> LAMB3-related conditions</p>
+                            <p><strong>ACMG Secondary Finding Phenotype:</strong></p>
+                            <p><strong>TransID:</strong> ENST00000356082.9</p>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h4 class="box-title">Clinvar</h4>
+                                <div class="info-box-icons">
+                                    <i class="fas fa-minus info-icon"></i>
+                                    <i class="far fa-square info-icon"></i>
+                                    <i class="fas fa-times info-icon"></i>
+                                </div>
+                            </div>
+                            <p><strong>Variant:</strong> chr1 : 209625919 : G : A</p>
+                            <p><strong>Pathogenicity:</strong> Pathogenic/Likely_pathogenic</p>
+                            <p><strong>Phenotype:</strong> MedGen:CN517202|MONDO:MONDO:0009182, MedGen:C0079683, OMIM:226700, Orphanet:79404|MONDO:MONDO:0009180, MedGen:C0268374, OMIM:226650, Orphanet:251393, Orphanet:79402, Orphanet:79405, Orphanet:89840</p>
+                            <p><strong>Inheritance:</strong> germline</p>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h4 class="box-title">GWAS Variants</h4>
+                                <div class="info-box-icons">
+                                    <i class="fas fa-minus info-icon"></i>
+                                    <i class="far fa-square info-icon"></i>
+                                    <i class="fas fa-times info-icon"></i>
+                                </div>
+                            </div>
+                            <p><strong>Disease:</strong> Fentanyl consumption in laparoscopic-assisted colectomy (first 24 hours)</p>
+                            <p><strong>SNP:</strong> rs2076222</p>
+                            <p><strong>P-value:</strong> 3E-7</p>
+                            <p><strong>OR:</strong> 0.3876</p>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h4 class="box-title">Carrier Screening</h4>
+                                <div class="info-box-icons">
+                                    <i class="fas fa-minus info-icon"></i>
+                                    <i class="far fa-square info-icon"></i>
+                                    <i class="fas fa-times info-icon"></i>
+                                </div>
+                            </div>
+                            <p><strong>Disorder:</strong> LAMB3-related conditions</p>
+                            <p><strong>Inheritance:</strong> Autosomal Recessive</p>
+                            <p><strong>Gene Name:</strong> LAMB3</p>
+                        </div>
+
+
+
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h4 class="box-title">Clinvar</h4>
+                                <div class="info-box-icons">
+                                    <i class="fas fa-minus info-icon"></i>
+                                    <i class="far fa-square info-icon"></i>
+                                    <i class="fas fa-times info-icon"></i>
+                                </div>
+                            </div>
+                            <p><strong>Variant:</strong> chr1 : 209625919 : G : A</p>
+                            <p><strong>Pathogenicity:</strong> Pathogenic/Likely_pathogenic</p>
+                            <p><strong>Phenotype:</strong> MedGen:CN517202|MONDO:MONDO:0009182, MedGen:C0079683, OMIM:226700, Orphanet:79404|MONDO:MONDO:0009180, MedGen:C0268374, OMIM:226650, Orphanet:251393, Orphanet:79402, Orphanet:79405, Orphanet:89840</p>
+                            <p><strong>Inheritance:</strong> germline</p>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h4 class="box-title">Rare Disease</h4>
+                                <div class="info-box-icons">
+                                    <i class="fas fa-minus info-icon"></i>
+                                    <i class="far fa-square info-icon"></i>
+                                    <i class="fas fa-times info-icon"></i>
+                                </div>
+                            </div>
+                            <p><strong>Pathogenicity:</strong> <span class="patho-likely">Likely Pathogenic</span></p>
+                            <p><strong>OMIM ID:</strong> 150310</p>
+                            <p><strong>Inheritance:</strong> Autosomal recessive, Autosomal dominant</p>
+                            <p><strong>Known Disease:</strong> Epidermolysis bullosa, junctional 1B, severe, Epidermolysis bullosa, junctional 1A, intermediate, Amelogenesis imperfecta, type IA</p>
+                        </div>
+
+
+
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h4 class="box-title">Gene Insights</h4>
+                                <div class="info-box-icons">
+                                    <i class="fas fa-minus info-icon"></i>
+                                    <i class="far fa-square info-icon"></i>
+                                    <i class="fas fa-times info-icon"></i>
+                                </div>
+                            </div>
+                            <p><strong>Gene PLI:</strong> 0</p>
+                            <p><strong>Gene Constraint Index:</strong> 0.00</p>
+                            <p><strong>Inheritance:</strong> AR</p>
+                            <p><strong>Carrier Phenotype:</strong> LAMB3-related conditions</p>
+                            <p><strong>ACMG Secondary Finding Phenotype:</strong></p>
+                            <p><strong>TransID:</strong> ENST00000356082.9</p>
+                        </div>
+
+                            <div class="info-box">
+                                <div class="info-box-header">
+                                    <h4 class="box-title">Custom Frequency List (PM2)</h4>
+                                    <div class="info-box-icons">
+                                        <i class="fas fa-minus info-icon"></i>
+                                        <i class="far fa-square info-icon"></i>
+                                        <i class="fas fa-times info-icon"></i>
+                                    </div>
+                                </div>
+                                <p>No matching records found</p>
+                            </div>
+
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h4 class="box-title">Clinvar</h4>
+                                <div class="info-box-icons">
+                                    <i class="fas fa-minus info-icon"></i>
+                                    <i class="far fa-square info-icon"></i>
+                                    <i class="fas fa-times info-icon"></i>
+                                </div>
+                            </div>
+                            <p><strong>Variant:</strong> chr1 : 209625919 : G : A</p>
+                            <p><strong>Pathogenicity:</strong> Pathogenic/Likely_pathogenic</p>
+                            <p><strong>Phenotype:</strong> MedGen:CN517202|MONDO:MONDO:0009182, MedGen:C0079683, OMIM:226700, Orphanet:79404|MONDO:MONDO:0009180, MedGen:C0268374, OMIM:226650, Orphanet:251393, Orphanet:79402, Orphanet:79405, Orphanet:89840</p>
+                            <p><strong>Inheritance:</strong> germline</p>
+                        </div>
+
+                            <div class="info-box">
+                                <div class="info-box-header">
+                                    <h4 class="box-title">Rare Disease</h4>
+                                    <div class="info-box-icons">
+                                        <i class="fas fa-minus info-icon"></i>
+                                        <i class="far fa-square info-icon"></i>
+                                        <i class="fas fa-times info-icon"></i>
+                                    </div>
+                                </div>
+                                <p><strong>Pathogenicity:</strong> <span class="patho-likely">Likely Pathogenic</span></p>
+                                <p><strong>OMIM ID:</strong> 150310</p>
+                                <p><strong>Inheritance:</strong> Autosomal recessive, Autosomal dominant</p>
+                                <p><strong>Known Disease:</strong> Epidermolysis bullosa, junctional 1B, severe, Epidermolysis bullosa, junctional 1A, intermediate, Amelogenesis imperfecta, type IA</p>
+                            </div>
+
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h4 class="box-title">Pharmacogenomic Insight(SeqRx)</h4>
+                                <div class="info-box-icons">
+                                    <i class="fas fa-minus info-icon"></i>
+                                    <i class="far fa-square info-icon"></i>
+                                    <i class="fas fa-times info-icon"></i>
+                                </div>
+                            </div>
+                            <p>No matching records found</p>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h4 class="box-title">GWAS Variants</h4>
+                                <div class="info-box-icons">
+                                    <i class="fas fa-minus info-icon"></i>
+                                    <i class="far fa-square info-icon"></i>
+                                    <i class="fas fa-times info-icon"></i>
+                                </div>
+                            </div>
+                            <p><strong>Disease:</strong> Fentanyl consumption in laparoscopic-assisted colectomy (first 24 hours)</p>
+                            <p><strong>SNP:</strong> rs2076222</p>
+                            <p><strong>P-value:</strong> 3E-7</p>
+                            <p><strong>OR:</strong> 0.3876</p>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h4 class="box-title">Carrier Screening</h4>
+                                <div class="info-box-icons">
+                                    <i class="fas fa-minus info-icon"></i>
+                                    <i class="far fa-square info-icon"></i>
+                                    <i class="fas fa-times info-icon"></i>
+                                </div>
+                            </div>
+                            <p><strong>Disorder:</strong> LAMB3-related conditions</p>
+                            <p><strong>Inheritance:</strong> Autosomal Recessive</p>
+                            <p><strong>Gene Name:</strong> LAMB3</p>
+                        </div>
+
+
+
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h4 class="box-title">Clinvar</h4>
+                                <div class="info-box-icons">
+                                    <i class="fas fa-minus info-icon"></i>
+                                    <i class="far fa-square info-icon"></i>
+                                    <i class="fas fa-times info-icon"></i>
+                                </div>
+                            </div>
+                            <p><strong>Variant:</strong> chr1 : 209625919 : G : A</p>
+                            <p><strong>Pathogenicity:</strong> Pathogenic/Likely_pathogenic</p>
+                            <p><strong>Phenotype:</strong> MedGen:CN517202|MONDO:MONDO:0009182, MedGen:C0079683, OMIM:226700, Orphanet:79404|MONDO:MONDO:0009180, MedGen:C0268374, OMIM:226650, Orphanet:251393, Orphanet:79402, Orphanet:79405, Orphanet:89840</p>
+                            <p><strong>Inheritance:</strong> germline</p>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h4 class="box-title">Pharmacogenomic Insight(SeqRx)</h4>
+                                <div class="info-box-icons">
+                                    <i class="fas fa-minus info-icon"></i>
+                                    <i class="far fa-square info-icon"></i>
+                                    <i class="fas fa-times info-icon"></i>
+                                </div>
+                            </div>
+                            <p>No matching records found</p>
+                        </div>
+
+
+
+
+
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h4 class="box-title">Gene Insights</h4>
+                                <div class="info-box-icons">
+                                    <i class="fas fa-minus info-icon"></i>
+                                    <i class="far fa-square info-icon"></i>
+                                    <i class="fas fa-times info-icon"></i>
+                                </div>
+                            </div>
+                            <p><strong>Gene PLI:</strong> 0</p>
+                            <p><strong>Gene Constraint Index:</strong> 0.00</p>
+                            <p><strong>Inheritance:</strong> AR</p>
+                            <p><strong>Carrier Phenotype:</strong> LAMB3-related conditions</p>
+                            <p><strong>ACMG Secondary Finding Phenotype:</strong></p>
+                            <p><strong>TransID:</strong> ENST00000356082.9</p>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h4 class="box-title">GWAS Variants</h4>
+                                <div class="info-box-icons">
+                                    <i class="fas fa-minus info-icon"></i>
+                                    <i class="far fa-square info-icon"></i>
+                                    <i class="fas fa-times info-icon"></i>
+                                </div>
+                            </div>
+                            <p><strong>Disease:</strong> Fentanyl consumption in laparoscopic-assisted colectomy (first 24 hours)</p>
+                            <p><strong>SNP:</strong> rs2076222</p>
+                            <p><strong>P-value:</strong> 3E-7</p>
+                            <p><strong>OR:</strong> 0.3876</p>
+                        </div>
+
+                        <div class="info-box">
+                            <div class="info-box-header">
+                                <h4 class="box-title">Carrier Screening</h4>
+                                <div class="info-box-icons">
+                                    <i class="fas fa-minus info-icon"></i>
+                                    <i class="far fa-square info-icon"></i>
+                                    <i class="fas fa-times info-icon"></i>
+                                </div>
+                            </div>
+                            <p><strong>Disorder:</strong> LAMB3-related conditions</p>
+                            <p><strong>Inheritance:</strong> Autosomal Recessive</p>
+                            <p><strong>Gene Name:</strong> LAMB3</p>
+                        </div>
+
                     </div>
-
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">Clinvar</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
-                            </div>
-                        </div>
-                        <p><strong>Variant:</strong> chr1 : 209625919 : G : A</p>
-                        <p><strong>Pathogenicity:</strong> Pathogenic/Likely_pathogenic</p>
-                        <p><strong>Phenotype:</strong> MedGen:CN517202|MONDO:MONDO:0009182, MedGen:C0079683, OMIM:226700, Orphanet:79404|MONDO:MONDO:0009180, MedGen:C0268374, OMIM:226650, Orphanet:251393, Orphanet:79402, Orphanet:79405, Orphanet:89840</p>
-                        <p><strong>Inheritance:</strong> germline</p>
-                    </div>
-
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">GWAS Variants</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
-                            </div>
-                        </div>
-                        <p><strong>Disease:</strong> Fentanyl consumption in laparoscopic-assisted colectomy (first 24 hours)</p>
-                        <p><strong>SNP:</strong> rs2076222</p>
-                        <p><strong>P-value:</strong> 3E-7</p>
-                        <p><strong>OR:</strong> 0.3876</p>
-                    </div>
-
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">Carrier Screening</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
-                            </div>
-                        </div>
-                        <p><strong>Disorder:</strong> LAMB3-related conditions</p>
-                        <p><strong>Inheritance:</strong> Autosomal Recessive</p>
-                        <p><strong>Gene Name:</strong> LAMB3</p>
-                    </div>
-
-
-
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">Clinvar</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
-                            </div>
-                        </div>
-                        <p><strong>Variant:</strong> chr1 : 209625919 : G : A</p>
-                        <p><strong>Pathogenicity:</strong> Pathogenic/Likely_pathogenic</p>
-                        <p><strong>Phenotype:</strong> MedGen:CN517202|MONDO:MONDO:0009182, MedGen:C0079683, OMIM:226700, Orphanet:79404|MONDO:MONDO:0009180, MedGen:C0268374, OMIM:226650, Orphanet:251393, Orphanet:79402, Orphanet:79405, Orphanet:89840</p>
-                        <p><strong>Inheritance:</strong> germline</p>
-                    </div>
-
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">Rare Disease</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
-                            </div>
-                        </div>
-                        <p><strong>Pathogenicity:</strong> <span class="patho-likely">Likely Pathogenic</span></p>
-                        <p><strong>OMIM ID:</strong> 150310</p>
-                        <p><strong>Inheritance:</strong> Autosomal recessive, Autosomal dominant</p>
-                        <p><strong>Known Disease:</strong> Epidermolysis bullosa, junctional 1B, severe, Epidermolysis bullosa, junctional 1A, intermediate, Amelogenesis imperfecta, type IA</p>
-                    </div>
-
-
-
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">Gene Insights</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
-                            </div>
-                        </div>
-                        <p><strong>Gene PLI:</strong> 0</p>
-                        <p><strong>Gene Constraint Index:</strong> 0.00</p>
-                        <p><strong>Inheritance:</strong> AR</p>
-                        <p><strong>Carrier Phenotype:</strong> LAMB3-related conditions</p>
-                        <p><strong>ACMG Secondary Finding Phenotype:</strong></p>
-                        <p><strong>TransID:</strong> ENST00000356082.9</p>
-                    </div>
-
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">Clinvar</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
-                            </div>
-                        </div>
-                        <p><strong>Variant:</strong> chr1 : 209625919 : G : A</p>
-                        <p><strong>Pathogenicity:</strong> Pathogenic/Likely_pathogenic</p>
-                        <p><strong>Phenotype:</strong> MedGen:CN517202|MONDO:MONDO:0009182, MedGen:C0079683, OMIM:226700, Orphanet:79404|MONDO:MONDO:0009180, MedGen:C0268374, OMIM:226650, Orphanet:251393, Orphanet:79402, Orphanet:79405, Orphanet:89840</p>
-                        <p><strong>Inheritance:</strong> germline</p>
-                    </div>
-
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">Pharmacogenomic Insight(SeqRx)</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
-                            </div>
-                        </div>
-                        <p>No matching records found</p>
-                    </div>
-
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">GWAS Variants</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
-                            </div>
-                        </div>
-                        <p><strong>Disease:</strong> Fentanyl consumption in laparoscopic-assisted colectomy (first 24 hours)</p>
-                        <p><strong>SNP:</strong> rs2076222</p>
-                        <p><strong>P-value:</strong> 3E-7</p>
-                        <p><strong>OR:</strong> 0.3876</p>
-                    </div>
-
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">Carrier Screening</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
-                            </div>
-                        </div>
-                        <p><strong>Disorder:</strong> LAMB3-related conditions</p>
-                        <p><strong>Inheritance:</strong> Autosomal Recessive</p>
-                        <p><strong>Gene Name:</strong> LAMB3</p>
-                    </div>
-
-
-
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">Clinvar</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
-                            </div>
-                        </div>
-                        <p><strong>Variant:</strong> chr1 : 209625919 : G : A</p>
-                        <p><strong>Pathogenicity:</strong> Pathogenic/Likely_pathogenic</p>
-                        <p><strong>Phenotype:</strong> MedGen:CN517202|MONDO:MONDO:0009182, MedGen:C0079683, OMIM:226700, Orphanet:79404|MONDO:MONDO:0009180, MedGen:C0268374, OMIM:226650, Orphanet:251393, Orphanet:79402, Orphanet:79405, Orphanet:89840</p>
-                        <p><strong>Inheritance:</strong> germline</p>
-                    </div>
-
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">Pharmacogenomic Insight(SeqRx)</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
-                            </div>
-                        </div>
-                        <p>No matching records found</p>
-                    </div>
-
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">Rare Disease</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
-                            </div>
-                        </div>
-                        <p><strong>Pathogenicity:</strong> <span class="patho-likely">Likely Pathogenic</span></p>
-                        <p><strong>OMIM ID:</strong> 150310</p>
-                        <p><strong>Inheritance:</strong> Autosomal recessive, Autosomal dominant</p>
-                        <p><strong>Known Disease:</strong> Epidermolysis bullosa, junctional 1B, severe, Epidermolysis bullosa, junctional 1A, intermediate, Amelogenesis imperfecta, type IA</p>
-                    </div>
-
-
-
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">Gene Insights</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
-                            </div>
-                        </div>
-                        <p><strong>Gene PLI:</strong> 0</p>
-                        <p><strong>Gene Constraint Index:</strong> 0.00</p>
-                        <p><strong>Inheritance:</strong> AR</p>
-                        <p><strong>Carrier Phenotype:</strong> LAMB3-related conditions</p>
-                        <p><strong>ACMG Secondary Finding Phenotype:</strong></p>
-                        <p><strong>TransID:</strong> ENST00000356082.9</p>
-                    </div>
-
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">GWAS Variants</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
-                            </div>
-                        </div>
-                        <p><strong>Disease:</strong> Fentanyl consumption in laparoscopic-assisted colectomy (first 24 hours)</p>
-                        <p><strong>SNP:</strong> rs2076222</p>
-                        <p><strong>P-value:</strong> 3E-7</p>
-                        <p><strong>OR:</strong> 0.3876</p>
-                    </div>
-
-                    <div class="info-box">
-                        <div class="info-box-header">
-                            <h4 class="box-title">Carrier Screening</h4>
-                            <div class="info-box-icons">
-                                <i class="fas fa-minus info-icon"></i>
-                                <i class="far fa-square info-icon"></i>
-                                <i class="fas fa-times info-icon"></i>
-                            </div>
-                        </div>
-                        <p><strong>Disorder:</strong> LAMB3-related conditions</p>
-                        <p><strong>Inheritance:</strong> Autosomal Recessive</p>
-                        <p><strong>Gene Name:</strong> LAMB3</p>
                     </div>
 
                 </div>
+
+
 
                 <div class="taskbar-area">
                     <div id="taskbar"></div>
